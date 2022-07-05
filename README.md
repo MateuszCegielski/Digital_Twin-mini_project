@@ -1,12 +1,12 @@
-## Warm-Up
+# Warm-Up
 
-# Zalożenia projektu 
+## Zalożenia projektu 
 
 W ramach rozgrzewki zaprogramujemy uproszczoną wersję digital twina.
 Ogarniemy w ten sposób ogólną zasadę działania programu, pracę z gihubem,
 konfigurację IDE i stosowanie dobrych praktyk programistycznych.
 
-# Wymagania:
+## Wymagania:
 1. Program będzie przyjmował dwa pliki wejściowe, jeden z danymi z czujników (prędkość, moment obrotowy) w formacie csv, a drugi z informacjami konfiguracyjnymi (parametry łożysk, wałów itp) w formacie json.
 2. Program będzie zwracał wyniki w formacie json.
 3. Program ma liczyć na podstawie danych wejściowych długość życia łożysk (L10)
