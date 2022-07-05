@@ -1,4 +1,4 @@
-# Warm-Up
+## Warm-Up
 
 # Zalożenia projektu 
 
