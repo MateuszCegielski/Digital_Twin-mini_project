@@ -47,6 +47,7 @@ if __name__ == "__main__":
         ]
 
     }
+
     jsonString = json.dumps(dane)
     jsonFile = open("data.json", "w")
     jsonFile.write(jsonString)
