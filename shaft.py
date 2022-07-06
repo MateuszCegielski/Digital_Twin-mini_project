@@ -1,10 +1,8 @@
 class Shaft:
-    def __init__(self, nominal_stress, allowed_stress, safety_indicator, id, allowed_safety_indicator = None):
-        self.As = allowed_stress
+    def __init__(self, nominal_stress, id, safety_indicator = None):
         self.Ns = nominal_stress
         self.Si = safety_indicator
-        self.name = id
-        self.allowed_safety_indicator = allowed_safety_indicator
+        self.id = id
 
     # def print_parameters(self):
     #     print(f"The shaft named {self.name}. Parameters: {self.Ns} nominal_stress, {self.As} allowed_stress.")
@@ -15,9 +13,9 @@ class Shaft:
     def print_result(self):
         print(f" The saftey indicator of shaft is equal to {self.Si}.\n")
         if {self.Si} < {self.safety_indicator}:
-            print(f"{self.Si} is optimal, the {self.name} shaft is able to work.\n")
+            print(f"{self.Si} is optimal, the {self.id} shaft is able to work.\n")
         else:
-            print(f"{self.Si} is too high, the {self.name} shaft is broken.\n")
+            print(f"{self.Si} is too high, the {self.id} shaft is broken.\n")
 
 
 class ListOfShafts(Shaft):

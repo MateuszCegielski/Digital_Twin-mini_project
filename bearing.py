@@ -1,11 +1,9 @@
 class Bearing:
 
-    def __init__(self, dynamic_load_capacity,  load, id, durability, allowed_durability = None):
+    def __init__(self, dynamic_load_capacity, id, durability= None):
         self.L= durability
         self.C = dynamic_load_capacity
-        self.P = load
         self.name = id
-        self.allowed_durability = allowed_durability
     # def print_parameters(self):
     #     print(f"The bearing named {self.name}. Parameters: {self.C} dynamic load capacity, {self.P} load.")
     def calculate (self):
@@ -21,7 +19,7 @@ class Bearing:
 
 
 
-class ListOfBearing (Bearing):
+class ListOfItems (Bearing):
     def __int__(self, bearing_list):
         self.bearing_list = bearing_list
 
@@ -31,6 +29,6 @@ if __name__ == "__main__":
     if "bearing" in list_of_bearing:
         for bearing in list_of_bearing:
             bearing.calculate()
-    else if "shaft" in list_of_shafts:
+    elif "shaft" in list_of_shafts:
         for shaft in list_of_shafts:
             shaft.calculate()
