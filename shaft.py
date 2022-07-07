@@ -1,27 +1,22 @@
+""""The model of shaft with required parameters to calculate it"""
 import math
-from statistics import mean
 
 
 class Shaft:
-
-    def __init__(self, nominal_stress, id, diameter):
-        self.Ns = nominal_stress
-        self.id = id
+    """The class of bearing with constructor and two methods"""
+    def __init__(self, nominal_stress, id_shaft, diameter):
+        self.ns_attribute = nominal_stress
+        self.item_id = id_shaft
         self.diameter = diameter
-        self.Si = []
+        self.si_attribute = []
         self.result = []
 
     def calculate(self, torque):
+        """Calculating the durability of shafts"""
         real_stress = (torque * 32) / (math.pi * self.diameter)
-        self.Si.append(self.Ns/real_stress)
-
-    def print_result(self):
-        print(f" The saftey indicator of shaft is equal to {self.Si}.\n")
-        if {self.Si} < {self.safety_indicator}:
-            print(f"{self.Si} is optimal, the {self.id} shaft is able to work.\n")
-        else:
-            print(f"{self.Si} is too high, the {self.id} shaft is broken.\n")
+        self.si_attribute.append(self.ns_attribute/real_stress)
 
     def creating_final_data(self):
-        min_value = min(self.Si)
+        """Calculating minimum"""
+        min_value = min(self.si_attribute)
         self.result = min_value

@@ -4,7 +4,7 @@ are calculated and exported after statistical transformations"""
 import bearing
 import shaft
 import reading_data
-
+import json
 
 PATH_CSV = "dataset.csv"
 PATH_JSON = "data.json"
@@ -33,5 +33,18 @@ if __name__ == "__main__":
             elif 'bearing'.casefold() == item.__class__.__name__.casefold():
                 item.calculate(force)
                 item.creating_final_data()
+        final_dict = {}
+        for i in items:
+            final_dict.update({f"{item.__class__.__name__.casefold()}":
+                                   {
+                                       "id": item.id,
+                                       "results": item.result
+                                   }
 
-        print(f"To wyniki z {item.__class__.__name__} : {item.result}")
+                })
+
+        json_object = json.dumps(final_dict, indent=1)
+        with open("sample.json", "a") as outfile:
+            outfile.write(json_object)
+
+
