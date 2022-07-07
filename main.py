@@ -18,7 +18,6 @@ if __name__ == "__main__":
         for item in items_group:
             if 's' in item['id']:
                 items.append(shaft.Shaft(item['nominal_stress_MPa'], item["id"], item["d"], ))
-                print("To jest shaft")
             elif 'b' in item['id']:
                 items.append(bearing.Bearing(item["C"], item['id']))
 
@@ -30,6 +29,5 @@ if __name__ == "__main__":
             force, torque = line
             if 's' in item.id:
                 item.calculate(torque)
-                print("To jest shaft")
             elif 'b' in item.id:
                 item.calculate(force)
