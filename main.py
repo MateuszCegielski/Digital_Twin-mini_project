@@ -27,7 +27,11 @@ if __name__ == "__main__":
     for item in items:
         for line in values_from_csv:
             force, torque = line
-            if 's' in item.id:
+            if 'shaft'.casefold() == item.__class__.__name__.casefold():
                 item.calculate(torque)
-            elif 'b' in item.id:
+                item.creating_final_data()
+            elif 'bearing'.casefold() == item.__class__.__name__.casefold():
                 item.calculate(force)
+                item.creating_final_data()
+
+        print(f"To wyniki z {item.__class__.__name__} : {item.result}")
