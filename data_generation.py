@@ -1,17 +1,17 @@
-import csv
+"""Here it is going to generate a sample"""
 import random
 import json
 
 
 if __name__ == "__main__":
     number_of_sample = 20
-    C = 760000
+    C = 760_000
 
     with open("dataset.csv", "w") as file:
         line = "force,torque\n"
         file.write(line)
         for i in range(number_of_sample):
-            P = C * (random.randint(10, 200) / 100) # Parameters P will have randomly from 10% to 200% of C value
+            P = C * (random.randint(10, 200) / 100)  # Parameters P will have randomly from 10% to 200% of C value
             torque = 3_000 * (random.randint(10, 200) / 100)
             line = f"{P},{torque}\n"
             file.write(line)
@@ -23,7 +23,7 @@ if __name__ == "__main__":
                 "C": 760_000
             },
             {
-                "id": "b1",
+                "id": "b2",
                 "C": 760_000
             },
         ],
