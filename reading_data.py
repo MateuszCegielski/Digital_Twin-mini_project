@@ -21,7 +21,7 @@ def reading_csv(path):
     return rows
 
 
-def reading_json(path,):
+def reading_json(path):
     """Reading data from csv files """
     with open(path, encoding="utf-8") as json_file:
         data = json.load(json_file)
