@@ -7,7 +7,7 @@ if __name__ == "__main__":
     NUMBER_OF_SAMPLE = 20
     C = 760_000
 
-    with open("dataset.csv", "w",encoding="utf-8") as file:
+    with open("dataset.csv", "w", encoding="utf-8") as file:
         LINE = "force,torque\n"
         file.write(LINE)
         for i in range(NUMBER_OF_SAMPLE):
@@ -49,6 +49,6 @@ if __name__ == "__main__":
     }
 
     jsonString = json.dumps(dane)
-    with open("data.json", "w",encoding="utf-8") as jsonFile:
+    with open("data.json", "w", encoding="utf-8") as jsonFile:
         jsonFile.write(jsonString)
         jsonFile.close()

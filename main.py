@@ -1,14 +1,13 @@
 """ This file is main file of this project, here we are using most of the method and class.
 Here the date is imported, then the object are created and their parameters
 are calculated and exported after statistical transformations"""
+import json
 import bearing
 import shaft
 import reading_data
-import json
 
 PATH_CSV = "dataset.csv"
 PATH_JSON = "data.json"
-
 
 if __name__ == "__main__":
     values_from_csv = reading_data.reading_csv(PATH_CSV)
@@ -36,15 +35,13 @@ if __name__ == "__main__":
         final_dict = {}
         for i in items:
             final_dict.update({f"{item.__class__.__name__.casefold()}":
-                                   {
-                                       "id": item.id,
-                                       "results": item.result
-                                   }
+                {
+                    "id": item.item_id,
+                    "results": item.result
+                }
 
-                })
+            })
 
         json_object = json.dumps(final_dict, indent=1)
-        with open("sample.json", "a") as outfile:
+        with open("sample.json", "a", encoding="utf-8") as outfile:
             outfile.write(json_object)
-
-
