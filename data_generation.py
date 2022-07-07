@@ -4,14 +4,14 @@ import json
 
 
 if __name__ == "__main__":
-    number_of_sample = 20
+    NUMBER_OF_SAMPLE = 20
     C = 760_000
 
-    with open("dataset.csv", "w") as file:
-        line = "force,torque\n"
-        file.write(line)
-        for i in range(number_of_sample):
-            P = C * (random.randint(10, 200) / 100)  # Parameters P will have randomly from 10% to 200% of C value
+    with open("dataset.csv", "w",encoding="utf-8") as file:
+        LINE = "force,torque\n"
+        file.write(LINE)
+        for i in range(NUMBER_OF_SAMPLE):
+            P = C * (random.randint(10, 200) / 100)
             torque = 3_000 * (random.randint(10, 200) / 100)
             line = f"{P},{torque}\n"
             file.write(line)
@@ -20,7 +20,7 @@ if __name__ == "__main__":
         "bearings": [
             {
                 "id": "b1",
-                "C": 760_000
+                "C": 560_000
             },
             {
                 "id": "b2",
@@ -49,6 +49,6 @@ if __name__ == "__main__":
     }
 
     jsonString = json.dumps(dane)
-    jsonFile = open("data.json", "w")
-    jsonFile.write(jsonString)
-    jsonFile.close()
+    with open("data.json", "w",encoding="utf-8") as jsonFile:
+        jsonFile.write(jsonString)
+        jsonFile.close()
