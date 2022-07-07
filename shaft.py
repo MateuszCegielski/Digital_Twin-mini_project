@@ -1,14 +1,17 @@
-class Shaft:
-    def __init__(self, nominal_stress, id, safety_indicator = None):
-        self.Ns = nominal_stress
-        self.Si = safety_indicator
-        self.id = id
+import math
 
-    # def print_parameters(self):
-    #     print(f"The shaft named {self.name}. Parameters: {self.Ns} nominal_stress, {self.As} allowed_stress.")
-    def __calculate__(self):
-        self.Si = self.Ns / self.As
-        return float(self.Si)
+
+class Shaft:
+    Si = []
+
+    def __init__(self, nominal_stress, id, diameter):
+        self.Ns = nominal_stress
+        self.id = id
+        self.diameter = diameter
+
+    def calculate(self, torque):
+        real_stress = (torque * 32) / (math.pi * self.diameter)
+        self.Si.append(self.Ns/real_stress)
 
     def print_result(self):
         print(f" The saftey indicator of shaft is equal to {self.Si}.\n")
@@ -16,8 +19,3 @@ class Shaft:
             print(f"{self.Si} is optimal, the {self.id} shaft is able to work.\n")
         else:
             print(f"{self.Si} is too high, the {self.id} shaft is broken.\n")
-
-
-class ListOfShafts(Shaft):
-    def __int__(self, bearing_list):
-        self.bearing_list = bearing_list
