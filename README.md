@@ -19,3 +19,8 @@ to was naprowadzę.
 7. Kod powinien być pisany zgodnie z wytycznymi, które podeślę na teamsie.
 8. Projekt jest mocno "otwarty" i nie ma jednego własciwego rozwiązania. Spróbujcie się
 dogadać między sobą i podzielić pracą ;)
+
+## Obsługa aplikacji 
+Jeśli nie posiadasz swoich danych, możesz je wygenerować automatycznie uruchamiając plik "data_generation", nastepnie należy uruchomić "main" aby uzyskać policzone wyniki dla podanych obiektów w pliku JSON i pomiarów z pliku CSV. Uzyskany wynik jest exportowany w formacie JSON. Pamiętaj aby uzupełnic odpowednio scieżki w pliku "main" do plików które chcesz przetworzyć 
+
+Enjoy! 
