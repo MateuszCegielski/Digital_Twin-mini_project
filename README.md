@@ -21,6 +21,6 @@ to was naprowadzę.
 dogadać między sobą i podzielić pracą ;)
 
 ## Obsługa aplikacji 
-Jeśli nie posiadasz swoich danych, możesz je wygenerować automatycznie uruchamiając plik "data_generation", nastepnie należy uruchomić "main" aby uzyskać policzone wyniki dla podanych obiektów w pliku JSON i pomiarów z pliku CSV. Uzyskany wynik jest exportowany w formacie JSON. Pamiętaj aby uzupełnić odpowednio ścieżki w pliku "main" do plików, które chcesz przetworzyć. 
+Jeśli nie posiadasz swoich danych, możesz je wygenerować automatycznie uruchamiając plik "data_generation", nastepnie należy uruchomić "main" aby uzyskać policzone wyniki dla podanych obiektów w pliku JSON i pomiarów z pliku CSV. Uzyskany wynik jest exportowany w formacie JSON. Pamiętaj, aby uzupełnić odpowednio ścieżki w pliku "main" do plików, które chcesz przetworzyć. 
 
 Enjoy! 
