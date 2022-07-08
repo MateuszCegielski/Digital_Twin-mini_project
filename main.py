@@ -2,9 +2,11 @@
 Here the date is imported, then the object are created and their parameters
 are calculated and exported after statistical transformations"""
 import json
+
 import bearing
 import shaft
 import reading_data
+from add_to_dict import adding_to_dict
 
 PATH_CSV = "dataset.csv"
 PATH_JSON = "data.json"
@@ -23,6 +25,8 @@ if __name__ == "__main__":
             else:
                 print("unsupported object".upper())
 
+    final_dict = {}
+
     for item in items:
         for line in values_from_csv:
             force, torque = line
@@ -32,16 +36,12 @@ if __name__ == "__main__":
             elif 'bearing'.casefold() == item.__class__.__name__.casefold():
                 item.calculate(force)
                 item.creating_final_data()
-        final_dict = {}
-        for i in items:
-            final_dict.update({f"{item.__class__.__name__.casefold()}":
-                {
-                    "id": item.item_id,
-                    "results": item.result
-                }
 
-            })
+        adding_to_dict(final_dict, item.__class__.__name__, {
+            "id": item.item_id,
+            "results": item.result
+        })
 
-        json_object = json.dumps(final_dict, indent=1)
-        with open("sample.json", "a", encoding="utf-8") as outfile:
-            outfile.write(json_object)
+    json_object = json.dumps(final_dict, indent=1)
+    with open("sample.json", "w", encoding="utf-8") as outfile:
+        outfile.write(json_object)
