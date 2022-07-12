@@ -1,6 +1,6 @@
 # Authors
-1. Mateusz Cegielski
-1. Daniel Augusto
+1. @Mateusz Cegielski
+1. @Daniel Augusto
 
 
 # Warm-Up
