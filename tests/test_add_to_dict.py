@@ -1,7 +1,7 @@
 """In this module we test functionalities of the add to dict module."""
 
 from unittest import TestCase
-from add_to_dict import adding_to_dict
+from utilities import add_to_dict
 
 
 class TestAddToDict(TestCase):
@@ -13,10 +13,10 @@ class TestAddToDict(TestCase):
             "surname": ["Kowalski", "Szpak", "Bielik"]
         }
         test_dict = {}
-        adding_to_dict(test_dict, "name", "Tom")
-        adding_to_dict(test_dict, "name", "Jerry")
-        adding_to_dict(test_dict, "name", "Konrad")
-        adding_to_dict(test_dict, "surname", "Kowalski")
-        adding_to_dict(test_dict, "surname", "Szpak")
-        adding_to_dict(test_dict, "surname", "Bielik")
+        add_to_dict(test_dict, "name", "Tom")
+        add_to_dict(test_dict, "name", "Jerry")
+        add_to_dict(test_dict, "name", "Konrad")
+        add_to_dict(test_dict, "surname", "Kowalski")
+        add_to_dict(test_dict, "surname", "Szpak")
+        add_to_dict(test_dict, "surname", "Bielik")
         self.assertEqual(test_dict, original_dict)

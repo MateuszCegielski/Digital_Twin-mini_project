@@ -16,6 +16,6 @@ class TestShaft(TestCase):
         """Check behavior of creating final data."""
         shaft1 = Shaft(1231, "1231", 1231)
         shaft1.si_attribute = [2342, 1232, 21, 1, 3]
-        shaft1.creating_final_data()
+        shaft1.create_final_data()
         minimum = min(shaft1.si_attribute)
         self.assertEqual(minimum, shaft1.result)
