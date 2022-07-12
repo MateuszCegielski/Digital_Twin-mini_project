@@ -1,4 +1,4 @@
-# Warm-Up
+# Digital-Twin - mini project 
 
 # Authors
 - [Mateusz Cegielski](https://github.com/MateuszCegielski)
