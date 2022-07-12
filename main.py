@@ -7,15 +7,15 @@ from collections import defaultdict
 
 import bearing
 import shaft
-import reading_data
 import utilities
 
 PATH_CSV = "dataset.csv"
 PATH_JSON = "data.json"
 
 if __name__ == "__main__":
-    values_from_csv = reading_data.reading_csv(PATH_CSV)
-    values_from_json = reading_data.reading_json(PATH_JSON)
+    values_from_csv = utilities.reading_csv(PATH_CSV)
+    values_from_json = utilities.reading_json(PATH_JSON)
+
     items = []
     for bearing_item in values_from_json["bearings"]:
         items.append(bearing.Bearing(bearing_item["C"], bearing_item["id"]))
@@ -27,12 +27,12 @@ if __name__ == "__main__":
 
     for item in items:
         for line in values_from_csv:
-            force, torque = line
+            P, torque = line
             if isinstance(item, shaft.Shaft):
                 item.calculate_durability(torque)
                 item.create_final_data()
             elif isinstance(item, bearing.Bearing):
-                item.calculate_durability(force)
+                item.calculate_durability(P)
                 item.create_final_data()
 
         final_dict = utilities.add_to_dict(final_dict, item.__class__.__name__, {
