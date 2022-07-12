@@ -1,9 +1,8 @@
-# Authors
-1. @Mateusz Cegielski
-1. @Daniel Augusto
-
-
 # Warm-Up
+
+# Authors
+- [Mateusz Cegielski](https://github.com/MateuszCegielski)
+- [Daniel Augusto](https://github.com/ad50922)
 
 ## Zalożenia projektu 
 
