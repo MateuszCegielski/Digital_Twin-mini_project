@@ -11,12 +11,12 @@ class Shaft:
         self.si_attribute = []
         self.result = []
 
-    def calculate(self, torque):
+    def calculate_durability(self, torque):
         """Calculating the durability of shafts"""
         real_stress = (torque * 32) / (math.pi * self.diameter)
         self.si_attribute.append(self.ns_attribute/real_stress)
 
-    def creating_final_data(self):
+    def create_final_data(self):
         """Calculating minimum"""
         min_value = min(self.si_attribute)
         self.result = min_value
