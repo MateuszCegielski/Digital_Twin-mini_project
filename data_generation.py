@@ -1,20 +1,23 @@
-"""Here it is going to generate a sample"""
-import random
+"""This is an optional module that can be used to generate sample data for the project"""
 import json
-
+import pandas as pd
+import numpy as np
 
 if __name__ == "__main__":
     NUMBER_OF_SAMPLE = 20
     C = 760_000
 
     with open("dataset.csv", "w", encoding="utf-8") as file:
-        LINE = "force,torque\n"
-        file.write(LINE)
-        for i in range(NUMBER_OF_SAMPLE):
-            P = C * (random.randint(10, 200) / 100)
-            torque = 3_000 * (random.randint(10, 200) / 100)
-            line = f"{P},{torque}\n"
-            file.write(line)
+        P = np.random.uniform(76_000, 1_520_000, NUMBER_OF_SAMPLE)
+        torque = np.random.uniform(300, 6000, NUMBER_OF_SAMPLE)
+        data = pd.DataFrame(
+            {
+                "P": P,
+                "torque": torque
+            }
+        )
+
+        data.to_csv("dataset.csv", index=False)
 
     dane = {
         "bearings": [
@@ -48,7 +51,5 @@ if __name__ == "__main__":
 
     }
 
-    jsonString = json.dumps(dane)
     with open("data.json", "w", encoding="utf-8") as jsonFile:
-        jsonFile.write(jsonString)
-        jsonFile.close()
+        json.dump(dane, jsonFile, indent=4)
