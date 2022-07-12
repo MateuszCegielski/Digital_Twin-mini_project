@@ -5,18 +5,18 @@ import math
 class Shaft:
     """The class of bearing with constructor and two methods"""
     def __init__(self, nominal_stress, id_shaft, diameter):
-        self.ns_attribute = nominal_stress
+        self.nominal_stress = nominal_stress
         self.item_id = id_shaft
         self.diameter = diameter
-        self.si_attribute = []
+        self.safety_factor = []
         self.result = []
 
     def calculate_durability(self, torque):
         """Calculating the durability of shafts"""
-        real_stress = (torque * 32) / (math.pi * self.diameter)
-        self.si_attribute.append(self.ns_attribute/real_stress)
+        real_stress = (torque * 32) / (math.pi * self.diameter ** 3)
+        self.safety_factor.append(self.nominal_stress / real_stress)
 
     def create_final_data(self):
-        """Calculating minimum"""
-        min_value = min(self.si_attribute)
+        """Calculating minimum safety factor """
+        min_value = min(self.safety_factor)
         self.result = min_value

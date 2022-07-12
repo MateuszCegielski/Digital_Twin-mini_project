@@ -16,15 +16,11 @@ if __name__ == "__main__":
     values_from_csv = reading_data.reading_csv(PATH_CSV)
     values_from_json = reading_data.reading_json(PATH_JSON)
     items = []
-    for items_group in values_from_json.values():
-        for item in items_group:
-            if 's' in item['id']:
-                items.append(shaft.Shaft(item['nominal_stress_MPa'], item["id"], item["d"], ))
-            elif 'b' in item['id']:
-                items.append(bearing.Bearing(item["C"], item['id']))
-
-            else:
-                print("unsupported object".upper())
+    for bearing_item in values_from_json["bearings"]:
+        items.append(bearing.Bearing(bearing_item["C"], bearing_item["id"]))
+    for shaft_item in values_from_json["shafts"]:
+        items.append(shaft.Shaft(shaft_item["nominal_stress_MPa"],
+                                 shaft_item["id"], shaft_item["d"]))
 
     final_dict = defaultdict(lambda: [])
 
