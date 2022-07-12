@@ -1,4 +1,18 @@
-""""The model of bearing with required parameters to calculate it"""
+"""The class was designed to store information about bearings.
+
+Parameters
+------------
+dynamic_load_capacity : float
+    A parameter of a bearing needed to calculate its expected life
+item_id  :  str
+    Designation of the bearing
+nominal_fatigue_life : list
+    Unit of nominal  fatigue life : millions of rotations
+result : dict
+    Results of the bearing analysis.
+    Consist statistics such as mean, minimum, maximum in one dictionary
+"""
+
 
 from statistics import mean
 
@@ -12,15 +26,16 @@ class Bearing:
         self.result = []
 
     def calculate_durability(self, force):
-        """Calculating the durability of bearings"""
-        self.nominal_fatigue_life.append(self.dynamic_load_capacity / force)
+        """Calculating the durability of bearings.
+         Unit of nominal  fatigue life : millions of rotations"""
+        self.nominal_fatigue_life.append((self.dynamic_load_capacity / force) ** 3)
 
     def create_final_data(self):
-        """Calculating statistics such as mean, minimum, maximum in one list"""
+        """Calculating statistics such as mean, minimum, maximum in one dict"""
         min_value = min(self.nominal_fatigue_life)
         mean_value = mean(self.nominal_fatigue_life)
         max_value = max(self.nominal_fatigue_life)
-        self.result = {"min_value": min_value,
-                       "mean_value": mean_value,
-                       "max_value": max_value
+        self.result = {"min_durability": round(min_value, 2),
+                       "mean_durability": round(mean_value, 2),
+                       "max_durability": round(max_value, 2)
         }
