@@ -1,3 +1,8 @@
+# Authors
+Mateusz Cegielski
+Daniel Augusto
+
+
 # Warm-Up
 
 ## Zalożenia projektu 
