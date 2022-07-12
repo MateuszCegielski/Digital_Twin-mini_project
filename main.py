@@ -1,6 +1,7 @@
 """ This file is main file of this project, here we are using most of the method and class.
-Here the date is imported, then the object are created and their parameters
-are calculated and exported after statistical transformations"""
+First, the data is imported, then the object are created and their parameters
+are calculated and exported after statistical transformations
+"""
 import json
 from collections import defaultdict
 
@@ -27,10 +28,10 @@ if __name__ == "__main__":
     for item in items:
         for line in values_from_csv:
             force, torque = line
-            if 'shaft'.casefold() == item.__class__.__name__.casefold():
+            if isinstance(item, shaft.Shaft):
                 item.calculate_durability(torque)
                 item.create_final_data()
-            elif 'bearing'.casefold() == item.__class__.__name__.casefold():
+            elif isinstance(item, bearing.Bearing):
                 item.calculate_durability(force)
                 item.create_final_data()
 

@@ -1,4 +1,17 @@
-""""The model of shaft with required parameters to calculate it"""
+"""The class was designed to store information about shafts.
+
+Parameters
+------------
+nominal_stress : float
+    A parameter of a shaft needed to calculate its safety factor
+item_id  :  str
+    Designation of the bearing
+safety_factor : list
+    If factor is lower than 1, it means that shaft is not safe.
+result : float
+    Results of the shaft analysis.
+    Consist statistics minimum value of safety factor.
+"""
 import math
 
 
@@ -9,7 +22,7 @@ class Shaft:
         self.item_id = id_shaft
         self.diameter = diameter
         self.safety_factor = []
-        self.result = []
+        self.result = None
 
     def calculate_durability(self, torque):
         """Calculating the durability of shafts"""
@@ -19,4 +32,4 @@ class Shaft:
     def create_final_data(self):
         """Calculating minimum safety factor """
         min_value = min(self.safety_factor)
-        self.result = min_value
+        self.result = round(min_value, 2)
