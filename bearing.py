@@ -1,4 +1,8 @@
-"""The class was designed to store information about bearings.
+"""Bearing class and methods"""
+from statistics import mean
+
+class Bearing:
+    """The class was designed to store information about bearings.
 
 Parameters
 ------------
@@ -11,14 +15,11 @@ nominal_fatigue_life : list
 result : dict
     Results of the bearing analysis.
     Consist statistics such as mean, minimum, maximum in one dictionary
+force : float
+    A parameter read from csv file, it is a force measured by the sensor on the bearing,
+     needed to calculate expected life
 """
 
-
-from statistics import mean
-
-
-class Bearing:
-    """The class of bearing with constructor and two methods"""
     def __init__(self, dynamic_load_capacity, id_bearing):
         self.dynamic_load_capacity = dynamic_load_capacity
         self.item_id = id_bearing
@@ -38,4 +39,4 @@ class Bearing:
         self.result = {"min_durability": round(min_value, 2),
                        "mean_durability": round(mean_value, 2),
                        "max_durability": round(max_value, 2)
-        }
+                       }

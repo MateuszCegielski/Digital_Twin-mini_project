@@ -6,8 +6,6 @@ import numpy as np
 if __name__ == "__main__":
     NUMBER_OF_SAMPLE = 20
     C = 760_000
-
-
     P = np.random.uniform(76_000, 1_520_000, NUMBER_OF_SAMPLE)
     torque = np.random.uniform(300, 6000, NUMBER_OF_SAMPLE)
     data = pd.DataFrame(

@@ -1,4 +1,9 @@
-"""The class was designed to store information about shafts.
+"""Shaft class and methods"""
+import math
+
+
+class Shaft:
+    """The class was designed to store information about shafts.
 
 Parameters
 ------------
@@ -11,12 +16,10 @@ safety_factor : list
 result : float
     Results of the shaft analysis.
     Consist statistics minimum value of safety factor.
+torque : float
+    A parameter read from csv file, it is a torque measured by the sensor on the shaft,
+    needed to calculate real_stress and safety_factor
 """
-import math
-
-
-class Shaft:
-    """The class of bearing with constructor and two methods"""
     def __init__(self, nominal_stress, id_shaft, diameter):
         self.nominal_stress = nominal_stress
         self.item_id = id_shaft
@@ -24,7 +27,7 @@ class Shaft:
         self.safety_factor = []
         self.result = None
 
-    def calculate_durability(self, torque):
+    def calculate_safety_factor(self, torque):
         """Calculating the durability of shafts"""
         real_stress = (torque * 32) / (math.pi * self.diameter ** 3)
         self.safety_factor.append(self.nominal_stress / real_stress)

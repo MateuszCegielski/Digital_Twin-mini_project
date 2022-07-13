@@ -13,15 +13,15 @@ PATH_CSV = "dataset.csv"
 PATH_JSON = "data.json"
 
 if __name__ == "__main__":
-    values_from_csv = utilities.reading_csv(PATH_CSV)
-    values_from_json = utilities.reading_json(PATH_JSON)
+    values_from_csv = utilities.read_csv(PATH_CSV)
+    values_from_json = utilities.read_json(PATH_JSON)
 
     items = []
     for bearing_item in values_from_json["bearings"]:
         items.append(bearing.Bearing(bearing_item["C"], bearing_item["id"]))
     for shaft_item in values_from_json["shafts"]:
-        items.append(shaft.Shaft(shaft_item["nominal_stress_MPa"],
-                                 shaft_item["id"], shaft_item["d"]))
+        items.append(shaft.Shaft(shaft_item["nominal_stress[MPa]"],
+                                 shaft_item["id"], shaft_item["d[cm]"]))
 
     final_dict = defaultdict(lambda: [])
 
@@ -29,7 +29,7 @@ if __name__ == "__main__":
         for line in values_from_csv:
             P, torque = line
             if isinstance(item, shaft.Shaft):
-                item.calculate_durability(torque)
+                item.calculate_safety_factor(torque)
                 item.create_final_data()
             elif isinstance(item, bearing.Bearing):
                 item.calculate_durability(P)
@@ -40,6 +40,5 @@ if __name__ == "__main__":
             "results": item.result
         })
 
-    json_object = json.dumps(final_dict, indent=1)
     with open("sample.json", "w", encoding="utf-8") as outfile:
-        outfile.write(json_object)
+        outfile.write(json.dumps(final_dict, indent=1,))
